@@ -16,23 +16,39 @@ let reader path =
 let trainingPath = @"/Users/malte/Documents/Schantz/MachineLearning/trainingsample.csv"
 let trainingData = reader trainingPath
 
+type Distance = int[] * int[] -> int
+
 let manhattanDistance (pixels1, pixels2) =
     Array.zip pixels1 pixels2
     |> Array.map (fun (x,y) -> abs (x-y))
     |> Array.sum
 
-let train (trainingset:Observation[]) =
+let euclideadDistance (pixels1, pixels2) =
+    Array.zip pixels1 pixels2
+    |> Array.map (fun (x,y) -> pown (x-y) 2)
+    |> Array.sum
+
+let train (trainingset:Observation[]) (dist : Distance) =
     let classify (pixels:int[]) =
         trainingset
-        |> Array.minBy (fun x -> manhattanDistance (x.Pixels, pixels))
+        |> Array.minBy (fun x -> dist (x.Pixels, pixels))
         |> fun x -> x.Label
     classify
 
-let classifier = train trainingData
+let manhattanClassifier = train trainingData manhattanDistance
+let euclideanClassifier = train trainingData euclideadDistance
 
 let validationPath = @"/Users/malte/Documents/Schantz/MachineLearning/validationsample.csv"
 let validationData = reader validationPath
 
-validationData
-|> Array.averageBy (fun x -> if classifier x.Pixels = x.Label then 1. else 0.)
-|> printfn "Correct: %.3f"
+let evaluate data classifier =
+    data
+    |> Array.averageBy (fun x -> if classifier x.Pixels = x.Label then 1. else 0.)
+    |> printfn "Correct: %.3f"
+
+
+
+printfn "Manhattan"
+evaluate validationData manhattanClassifier
+printfn "Euclidean"
+evaluate validationData euclideanClassifier

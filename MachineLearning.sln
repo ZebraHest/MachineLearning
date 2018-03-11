@@ -5,6 +5,8 @@ Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "F_Tutorial", "F_Tutorial\F_
 EndProject
 Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "DigitReconizer", "DigitReconizer\DigitReconizer.fsproj", "{3FEAC97A-BDA8-4A44-97C1-2E511D7C767C}"
 EndProject
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "SpamOrHam", "SpamOrHam\SpamOrHam.fsproj", "{0CEE5B5F-1318-41A1-B215-9670DC478396}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{3FEAC97A-BDA8-4A44-97C1-2E511D7C767C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FEAC97A-BDA8-4A44-97C1-2E511D7C767C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FEAC97A-BDA8-4A44-97C1-2E511D7C767C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CEE5B5F-1318-41A1-B215-9670DC478396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEE5B5F-1318-41A1-B215-9670DC478396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEE5B5F-1318-41A1-B215-9670DC478396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEE5B5F-1318-41A1-B215-9670DC478396}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
